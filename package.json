@@ -1,0 +1,23 @@
+{
+  "name": "to-do-list-epic-developers-",
+  "version": "1.0.0",
+  "description": "To-Do-List project week2",
+  "main": "dom.js",
+  "scripts": {
+    "test": "tape ./test.js | tap-spec "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACG6/To-Do-list-epic-developers-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACG6/To-Do-list-epic-developers-/issues"
+  },
+  "homepage": "https://github.com/FACG6/To-Do-list-epic-developers-#readme",
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.2"
+  }
+}
