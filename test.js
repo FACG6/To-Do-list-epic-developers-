@@ -90,3 +90,41 @@ test("logic => mark test", t => {
   t.deepEqual(logic.markTodo(todos, 1), expected, 'The id was marked');
   t.end();
 });
+
+////
+
+
+
+
+
+
+
+
+test("test sorting the todo", t => {
+  let todos = [
+    {
+      id: 0,
+      description: "todo1",
+      done: true
+    },
+    {
+      id: 1,
+      description: "todo2",
+      done: false
+    }];
+  let actual = logic.sortTodos(todos);
+  let expected = [
+    {
+      id: 1,
+      description: "todo2",
+      done: false,
+    },
+    {
+      id: 0,
+      description: "todo1",
+      done: true,
+    }
+  ];
+  t.deepEqual(actual, expected, "test the sort");
+  t.end();
+});
