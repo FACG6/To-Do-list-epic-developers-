@@ -46,10 +46,12 @@ var todoFunctions = {
       // hint: array.filter
     },
     markTodo: function(todos, idToMark) {
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-      // this element will have its done value toggled
-      // hint: array.map
+      const newTodos = todos.map(element => ({...element}));
+      return newTodos.map((element) => {
+        if(element.id === idToMark)
+        element.done = ! element.done;  
+        return element
+      })
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
@@ -67,3 +69,4 @@ var todoFunctions = {
   if (typeof module !== 'undefined') {
     module.exports = todoFunctions;
   }
+  
