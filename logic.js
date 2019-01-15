@@ -24,8 +24,19 @@ var todoFunctions = {
     },
     
     addTodo: function(todos, newTodo) {
+      if(isNaN(newTodo) == false){
+        return "plz add something to do"
+      }
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
+      const newtodo = todoFunctions.cloneArrayOfObjects(todos);
       // returns a new array, it should contain todos with the newTodo added to the end.
+      newTodoObj = {
+        id: todoFunctions.generateId(),
+        description: newTodo,
+        done: false,
+      }
+      newtodo.push(newTodoObj);
+      return newtodo;
       // add an id to the newTodo. You can use the generateId function to create an id.
       // hint: array.concat
     },
