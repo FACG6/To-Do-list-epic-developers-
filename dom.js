@@ -15,7 +15,9 @@
 
     // add span holding description
     var span = document.createElement("span");
+    
     span.textContent = todo.description;
+    
     todoNode.appendChild(span);
 
     // this adds the delete button
@@ -35,9 +37,9 @@
     var markButtonNode = document.createElement("button");
     markButtonNode.classList.add("mark");
     markButtonNode.textContent = "Mark";
+
     markButtonNode.addEventListener("click", function (event) {
       var newState = todoFunctions.markTodo(state, todo.id);
-      console.log(newState);
       update(newState);
     });
     todoNode.appendChild(markButtonNode);
@@ -56,7 +58,6 @@
       // what is inside event.target?
       let description = document.querySelector("input[name='description']").value;
        state = todoFunctions.addTodo(state, description);
-       console.log(state);
       // var descrip  tion = '?'; // event.target ....
       // hint: todoFunctions.addTodo
       var newState = state; // ?? change this!
