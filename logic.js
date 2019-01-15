@@ -24,11 +24,19 @@ var todoFunctions = {
     },
     
     addTodo: function(todos, newTodo) {
+      if(isNaN(newTodo) == false){
+        return "plz add something to do"
+      }
       // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
+      const newtodo = todoFunctions.cloneArrayOfObjects(todos);
       // returns a new array, it should contain todos with the newTodo added to the end.
-      // add an id to the newTodo. You can use the generateId function to create an id.
-      // hint: array.concat
-      const newTodo =[...todos]
+      newTodoObj = {
+        id: todoFunctions.generateId(),
+        description: newTodo,
+        done: false,
+      }
+      newtodo.push(newTodoObj);
+      return newtodo;
       
     },
     deleteTodo: function(todos, idToDelete) {
@@ -43,10 +51,12 @@ var todoFunctions = {
 
     },
     markTodo: function(todos, idToMark) {
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
-      // in the new todo array, all elements will remain unchanged except the one with id: idToMark
-      // this element will have its done value toggled
-      // hint: array.map
+      const newTodos = todos.map(element => ({...element}));
+      return newTodos.map((element) => {
+        if(element.id === idToMark)
+        element.done = ! element.done;  
+        return element
+      })
     },
     sortTodos: function(todos, sortFunction) {
       // stretch goal! Do this last
@@ -64,3 +74,4 @@ var todoFunctions = {
   if (typeof module !== 'undefined') {
     module.exports = todoFunctions;
   }
+  
