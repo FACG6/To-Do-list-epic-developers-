@@ -1,20 +1,64 @@
 var test = require("tape");
 var logic = require("./logic");
 
-let todos = [
-  {
-    id: 0,
-    description: "todo1",
-    done: false
-  },
-  {
-    id: 1,
-    description: "todo2",
-    done: false
-  }
-];
+
+
+test('testing add new todo', function(t) {
+  let array = [];
+  const actual = logic.addTodo(array, "test adding") ;
+  const expectes = [
+    {
+      id: 1,
+      description: "test adding",
+     done: false,
+    }
+    ]
+  t.deepEqual(actual,expectes, "done adding the new todo");
+  t.end();
+});
+
+test('testing add new todo as anumber', function(t) {
+  let array = [];
+  const actual = logic.addTodo(array, "51") ;
+  const expectes = "plz add something to do";
+  [
+    {
+      id: 1,
+      description: "test adding",
+     done: false,
+    }
+  ]
+  t.deepEqual(actual,expectes, "done testing add numbers");
+  t.end();
+});
+
+test('testing add space', function(t) {
+  let array = [];
+  const actual = logic.addTodo(array, "  ") ;
+  const expectes = "plz add something to do";
+  [
+    {
+      id: 1,
+      description: "test adding",
+     done: false,
+    }
+  ]
+  t.deepEqual(actual,expectes, "done testing space");
+  t.end();
+});
 
 test("logic => mark test", t => {
+  let todos = [
+    {
+      id: 0,
+      description: "todo1",
+      done: false
+    },
+    {
+      id: 1,
+      description: "todo2",
+      done: false
+    }];
   let actual = logic.markTodo(todos, 0);
   let expected = [
     {
