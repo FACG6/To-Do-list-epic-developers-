@@ -31,9 +31,9 @@
     todoNode.appendChild(span);
 
     // this adds the delete button
-    var deleteButtonNode = document.createElement("button");
-    deleteButtonNode.classList.add("del");
-    deleteButtonNode.textContent = "Delete";
+    var deleteButtonNode = document.createElement("i");
+    deleteButtonNode.classList.add("fas"); 
+    deleteButtonNode.classList.add("fa-times");
     todoNode.appendChild(deleteButtonNode);
 
     deleteButtonNode.addEventListener("click", function(event) {
