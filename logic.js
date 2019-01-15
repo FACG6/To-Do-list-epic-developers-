@@ -24,11 +24,12 @@ var todoFunctions = {
     },
     
     addTodo: function(todos, newTodo) {
-      if(isNaN(newTodo) == false){
-        return "plz add something to do"
-      }
-      // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
       const newtodo = todoFunctions.cloneArrayOfObjects(todos);
+      if(!isNaN(newTodo) || newTodo.length < 2){
+        alert('Enter a valid To-Do');
+        return [];
+      }
+      
       // returns a new array, it should contain todos with the newTodo added to the end.
       newTodoObj = {
         id: todoFunctions.generateId(),
@@ -52,21 +53,13 @@ var todoFunctions = {
         return element
       })
     },
-    sortTodos: function(todos, sortFunction) {
-      // stretch goal! Do this last
-      // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
+    sortTodos: function(todos) {
       const newtodo = todoFunctions.cloneArrayOfObjects(todos);
-      // sortFunction will have same signature as the sort function in array.sort
-      return newtodo.sort((a,b) => a.done-b.done);
-      // hint: array.slice, array.sort
+      return newtodo.sort((a,b) => a.done - b.done);
     },
   };
   
   
-  // Why is this if statement necessary?
-  // The answer has something to do with needing to run code both in the browser and in Node.js
-  // See this article for more details: 
-  // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
   if (typeof module !== 'undefined') {
     module.exports = todoFunctions;
   }
