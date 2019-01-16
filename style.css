@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Indie Flower', cursive;
   }
 .body{
     padding-top: 10%;
@@ -32,6 +35,7 @@
 
   } 
   .addToDoForm [value="Add"]{ 
+    cursor: pointer; 
     margin:13px; 
    width:15%;
     font-size: 20px; 
@@ -39,6 +43,7 @@
 
 }
 .fa-sort{
+    cursor: pointer; 
     margin: 17px;
     margin-left: 30px;
     font-size: 45px;
@@ -48,47 +53,71 @@
 .span-style{
 
     padding: 5px;
-    margin:0;
+    flex:5;
     font-size: 26px;
-    width:70%;
+    width:60%;
     float: left;
 
 }
 
 .container{
-    display: flex;
+    /* display: flex; */
     border:2px hsl(195, 2%, 69%) solid;
     margin-top: 10px;
-    padding: 10px;
     width: 50%;
+    max-height: 70vh;
+    overflow-x: scroll;
+    overflow-y: auto;
 }
 
 .ul-style{
-    margin:0;
-    padding: 0;
-    width:100%;
+   width:100%;
 }
  .li-Style {
+     display: flex;
+     align-items: center;
     list-style: none;
-     width: 107%;
-     height: 45px;;
+    margin: 5px;
+     min-height: 45px;;
     padding:7px;
     background: #eee;
-    /* font-size: 18px; */
+    border-bottom: 2px #142331 solid;
+    word-wrap: break-word;
+}
+.todo-item span-style{
+    flex:3;
+
 }
 
-/* span for text {
-    flex: 6;
-}
 
 .textDecoration{
-    color: red;
+    color: blue;
     text-decoration: line-through;
 }
-markbutton {
-    flex:1;
+.fa-edit::before{  
+    cursor: pointer; 
+    padding-left:20px;
+    padding-right:20px;
+    color: blueviolet;
+    /* flex:1; */
+}    
+.fa-check-circle:before{
+    cursor: pointer; 
+    /* padding-left:20px; */
+    padding-right:20px;
 }
+.fa-check-circle:click{
+    cursor: pointer; 
+    color: green;
+    /* padding-left:20px; */
+    padding-right:20px;
+}
+.fa-times:before{
+    cursor: pointer; 
+    padding-right:10px;
 
-deletebutton {
-    flex: 1;
-} */
+
+}
+.green-color{
+    color:'green';
+}
