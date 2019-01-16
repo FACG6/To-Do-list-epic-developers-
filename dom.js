@@ -33,13 +33,15 @@
     // craete a span holding description and append it to the list-item (todoNode)
     let span = document.createElement("span");
     let time = new Date();
+    let minute =
+      time.getMinutes() > 9 ? time.getMinutes() : "0" + time.getMinutes();
     let day = days[time.getDay()];
     let hour =
       time.getHours() > 12
-        ? time.getHours() - 12 + ":" + time.getMinutes() + "PM"
-        : time.getHours() + ":" + time.getMinutes() + " AM";
+        ? time.getHours() - 12 + ":" + minute + "PM"
+        : time.getHours() + ":" + minute + " AM";
     let timeOfTodo = document.createElement("span");
-    timeOfTodo.classList.add('todo-time');
+    timeOfTodo.classList.add("todo-time");
     timeOfTodo.appendChild(document.createTextNode(day + " " + hour));
     span.classList.add("todo-item");
     span.appendChild(document.createTextNode(todo.description));
@@ -67,6 +69,19 @@
       currentTodo.setAttribute("id", "update-item");
     });
 
+    // add markTodo button
+    let markButtonNode = document.createElement("i");
+    markButtonNode.classList.add("fas");
+    markButtonNode.classList.add("fa-check-circle");
+    todoNode.appendChild(markButtonNode);
+
+    //add event listener to the mark button
+    markButtonNode.addEventListener("click", function(event) {
+      event.target.classList.add("green-color");
+      let newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+
     // create the delete-icon and append it to the list-item (todoNode)
     let deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fas");
@@ -79,50 +94,23 @@
       let popupClose = document.querySelector(".close-popup");
       let popupContent = document.querySelector(".popup-content");
       let popupBox = document.querySelector(".popup-box");
-      let confirmButton = document.createElement('button');
+      let confirmButton = document.createElement("button");
       popupContainer.classList.add("popup-container-onclick");
-      popupContent.textContent =
-        "Are you sure ?!!";
+      popupContent.textContent = "Are you sure ?!!";
 
-      confirmButton.textContent = 'Confirm';
-      confirmButton.classList.add('popup-confirm-button');
+      confirmButton.textContent = "Confirm";
+      confirmButton.classList.add("popup-confirm-button");
       popupBox.appendChild(confirmButton);
 
       popupClose.addEventListener("click", event => {
         popupContainer.classList.remove("popup-container-onclick");
-        confirmButton.parentElement.removeChild(confirmButton);
       });
-      confirmButton.addEventListener('click', event => {
+      confirmButton.addEventListener("click", event => {
         let newState = todoFunctions.deleteTodo(state, todo.id);
         update(newState);
         confirmButton.parentElement.removeChild(confirmButton);
         popupContainer.classList.remove("popup-container-onclick");
       });
-
-      // } else if (inputText.value.length < 3) {
-      //   let popupContainer = document.querySelector(".popup-container");
-      //   let popupClose = document.querySelector(".close-popup");
-      //   let popupContent = document.querySelector(".popup-content");
-      //   popupContent.textContent = "Your To-Do is so short, try to add more details";
-      //   popupContainer.classList.add("popup-container-onclick");
-      //   popupClose.addEventListener("click", event => {
-      //     popupContainer.classList.remove("popup-container-onclick");
-      //   });
-      //   return;
-      // }
-
-    });
-
-    // add markTodo button
-    var markButtonNode = document.createElement("button");
-    markButtonNode.classList.add("markButton");
-    markButtonNode.textContent = "Mark";
-    todoNode.appendChild(markButtonNode);
-
-    //add event listener to the mark button
-    markButtonNode.addEventListener("click", function(event) {
-      var newState = todoFunctions.markTodo(state, todo.id);
-      update(newState);
     });
 
     // add classes for css
@@ -131,8 +119,6 @@
     }
     todoNode.classList.add("li-Style");
     span.classList.add("span-style");
-    todoNode.appendChild(markButtonNode);
-
     return todoNode;
   };
 
