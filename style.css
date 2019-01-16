@@ -1,123 +1,208 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Indie Flower', cursive;
-  }
-.body{
-    padding-top: 10%;
-    margin:0;
-    background-color: #bdc3c7;  
-    background: linear-gradient(to top, #bdc3c7, #142331);
-    height: 100vh;
-    display:flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.body {
+  background-image: url("https://images.unsplash.com/photo-1524862655266-89c67a10c4b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80");
+  /* background: #1c92d2;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to bottom, #f2fcfe, #1c92d2);  /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to bottom, #f2fcfe, #1c92d2); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.rgbaBackgound {
+  background-color: #35374173;
+  width: 100%;
+  height: 100vh;
+  padding-top: 10%;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .addToDoForm {
-    
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    width: 50%;
-    border:2px hsl(195, 2%, 69%) solid;
-    padding: 5px;
-    
-  }
- 
-  .addToDoForm [name="description"]{
-       margin: 10px; 
-      width:60%;
-       font-size: 20px; 
-       color: #352e2e;
-       padding-left: 16px;
-
-  } 
-  .addToDoForm [value="Add"]{ 
-    cursor: pointer; 
-    margin:13px; 
-   width:15%;
-    font-size: 20px; 
-    color: #352e2e;
-
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  width: 50%;
+  border: rgb(41, 40, 40) solid;
+  border-radius: 0 0 12px 12px;
+  background: rgba(146, 153, 169, 0.9);
+  /* background: #ff6347; */
+  padding: 5px;
 }
-.fa-sort{
-    cursor: pointer; 
-    margin: 17px;
-    margin-left: 30px;
-    font-size: 45px;
-    
+.addToDoForm [name="description"] {
+  margin: 10px;
+  width: 60%;
+  font-size: 20px;
+  color: #352e2e;
+  padding-left: 16px;
+  font-family: "Noto Sans KR";
+  border-radius: 8px;
+  border: black solid;
 }
-  
+.addToDoForm [name="submit"] {
+  font-family: "Noto Sans KR";
+  font-weight: bold;
+  margin: 13px;
+  width: 15%;
+  font-size: 20px;
+  color: black;
+  background: white;
+  border: black solid;
+  border-radius: 8px;
+}
+.addToDoForm [name="submit"]:hover {
+  cursor: pointer;
+  color: white;
+  background: rgb(41, 40, 40);
+}
+.fa-sort {
+  margin: 17px;
+  margin-left: 30px;
+  font-size: 20px;
+  line-height: 5;
+  display: inline-block;
+}
+.fa-sort:before {
+  font-size: 40px;
+}
+.todo-item {
+  padding: 5px;
+  margin: 0;
+  font-size: 26px;
+  float: left;
+  flex: 3;
+}
 .span-style{
-
-    padding: 5px;
-    flex:5;
-    font-size: 26px;
-    width:60%;
-    float: left;
-
+    width: 60%;
+}
+.container {
+  border: 3px #282d3d solid;
+  border-radius: 8px;
+  margin-top: 10px;
+  max-width: 50%;
+  max-height: 70vh;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.li-Style:nth-child(even) {
+  background: #a9b0c9;
+}
+.ul-style {
+  width: 100%;
+}
+.li-Style {
+  font-family: "Noto Sans KR";
+  position: relative;
+  background: #e2e9ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  min-height: 45px;
+  padding: 7px;
+  border-bottom: 2px #142331 solid;
+  word-wrap: break-word;
+}
+.textDecoration {
+  color: green;
+  text-decoration: line-through;
+}
+.textDecoration::after {
+  content: " (Done)";
+  color: green;
+}
+.fas,
+.far {
+  margin-left: 15px;
+  font-size: 1.5em;
+}
+.fas:hover,
+.far:hover {
+  cursor: pointer;
+}
+.deletebutton {
+  flex: 1;
+}
+.popup-container {
+  font-family: "Noto Sans KR";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #575c6db9;
+  visibility: hidden;
+  opacity: 0;
+}
+.popup-container-onclick {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-box {
+  margin: 150px auto;
+  padding: 0 20px 20px 20px;
+  border-radius: 10px;
+  background: #fff;
+  width: 35%;
+}
+.close-popup {
+  position: relative;
+  left: 95%;
+  bottom: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #464b5e;
+}
+.popup-confirm-button {
+  position: relative;
+  left: 85%;
+  font-family: "Noto Sans KR";
+  text-decoration: none;
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 5px;
+  border-radius: 4px;
+  background: #fff;
+  color: #464b5e;
+  border: #464b5e solid;
+}
+.popup-confirm-button:hover {
+  cursor: pointer;
+  background: #464b5e;
+  color: #fff;
+}
+.green-color {
+  color: "green";
+}
+.todo-time {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: rgb(58, 58, 58);
+  width: 60%;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding-top: 15px;
+  word-wrap: break-word;
+  flex: 3;
 }
 
-.container{
-    /* display: flex; */
-    border:2px hsl(195, 2%, 69%) solid;
-    margin-top: 10px;
-    width: 50%;
-    max-height: 70vh;
-    overflow-x: scroll;
-    overflow-y: auto;
-}
-
-.ul-style{
-   width:100%;
-}
- .li-Style {
-     display: flex;
-     align-items: center;
-    list-style: none;
-    margin: 5px;
-     min-height: 45px;;
-    padding:7px;
-    background: #eee;
-    border-bottom: 2px #142331 solid;
-    word-wrap: break-word;
-}
-.todo-item span-style{
-    flex:3;
-
-}
-
-
-.textDecoration{
-    color: blue;
-    text-decoration: line-through;
-}
-.fa-edit::before{  
-    cursor: pointer; 
-    padding-left:20px;
-    padding-right:20px;
-    color: blueviolet;
-    /* flex:1; */
-}    
-.fa-check-circle:before{
-    cursor: pointer; 
-    /* padding-left:20px; */
-    padding-right:20px;
-}
-.fa-check-circle:click{
-    cursor: pointer; 
-    color: green;
-    /* padding-left:20px; */
-    padding-right:20px;
-}
-.fa-times:before{
-    cursor: pointer; 
-    padding-right:10px;
-
-
-}
-.green-color{
-    color:'green';
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding-top: 5px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: #c8c9c9;
+  background: #1e1e1e;
 }
