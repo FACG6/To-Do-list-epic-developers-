@@ -3,7 +3,7 @@
 * Dena
 * Ahmad
 * Jamalat
-* Abd allh
+* Abdallah
 
 ---
 ### WHY ?
