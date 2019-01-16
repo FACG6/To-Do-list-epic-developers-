@@ -70,6 +70,31 @@
       currentTodo.setAttribute("id", "update-item");
     });
     
+    // add markTodo button
+    var markButtonNode = document.createElement("i");
+    markButtonNode.classList.add("fas");
+    markButtonNode.classList.add("fa-check-circle");
+    // markButtonNode.textContent = "Mark";
+    todoNode.appendChild(markButtonNode);
+    
+    //add event listener to the mark button
+    markButtonNode.addEventListener("click", function(event) {
+      event.target.classList.add('green-color');
+      var newState = todoFunctions.markTodo(state, todo.id);
+     
+     console.log(event.target);
+     
+     update(newState);
+    });
+    
+    // add classes for css
+    if (todo.done === true) {
+      span.classList.add('textDecoration');
+    }
+    todoNode.classList.add("li-Style");
+    span.classList.add('span-style');
+    todoNode.appendChild(markButtonNode);
+    
     // create the delete-icon and append it to the list-item (todoNode)
     let deleteIcon = document.createElement("i");
     deleteIcon.classList.add("fas");
@@ -82,26 +107,6 @@
       update(newState);
     });
     
-    // add markTodo button
-    var markButtonNode = document.createElement("button");
-    markButtonNode.classList.add("markButton");
-    markButtonNode.textContent = "Mark";
-    todoNode.appendChild(markButtonNode);
-    
-    //add event listener to the mark button
-    markButtonNode.addEventListener("click", function(event) {
-      var newState = todoFunctions.markTodo(state, todo.id);
-      update(newState);
-    });
-    
-    // add classes for css
-    if (todo.done === true) {
-      span.classList.add('textDecoration');
-    }
-    todoNode.classList.add("li-Style");
-    span.classList.add('span-style');
-    todoNode.appendChild(markButtonNode);
-
 
     return todoNode;
   };
