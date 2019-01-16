@@ -4,7 +4,8 @@
   "description": "To-Do-List project week2",
   "main": "dom.js",
   "scripts": {
-    "test": "tape ./test.js | tap-spec "
+    "test": "tape ./test.js | tap-spec ",
+    "cover": "istanbul cover ./test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/FACG6/To-Do-list-epic-developers-#readme",
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.2"
   }

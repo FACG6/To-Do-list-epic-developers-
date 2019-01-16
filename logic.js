@@ -25,6 +25,9 @@ let todoFunctions = {
 
   addTodo: (todos, newTodo) => {
     const newtodo = todoFunctions.cloneArrayOfObjects(todos);
+    if(!isNaN(newTodo)){
+      return todos;
+    }
 
     // returns a new array, it should contain todos with the newTodo added to the end.
     newTodoObj = {
