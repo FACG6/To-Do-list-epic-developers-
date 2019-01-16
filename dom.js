@@ -5,95 +5,82 @@
   // This is the dom node where we will keep our todo
   var container = document.getElementById("todo-container");
   var addTodoForm = document.getElementById("add-todo");
-
+  addTodoForm.classList.add('addToDoForm');
+  container.classList.add("container")
   var state = []; // this is our initial todoList
   
-
   // add sorttodo button
-  var sortButton = document.createElement("i");
- sortButton.setAttribute("class", "fas fa-sort");
-  // sortButton.classList.add = "fas";
-  // sortButton.classList.add = "fa-sort";
+  let sortButton = document.createElement("i");
+  sortButton.setAttribute("class", "fas fa-sort");
   addTodoForm.appendChild(sortButton);
   sortButton.addEventListener("click", function() {
-    let newState = todoFunctions.sortTodos(state);
-    update(newState);
+      let newState = todoFunctions.sortTodos(state);
+      update(newState);
   });
 
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function(todo) {
-    var todoNode = document.createElement("li");
-    // you will need to use addEventListener
-
+    let createTodoNode = function(todo) {
+    let todoNode = document.createElement("li");
+    todoNode.classList.add("li-Style");
     // add span holding description
-    var span = document.createElement("span");
+    let span = document.createElement("span");
+    span.classList.add('span-style');
     span.textContent = todo.description;
     todoNode.appendChild(span);
-
-    // this adds the delete button
-    var deleteButtonNode = document.createElement("i");
-    deleteButtonNode.classList.add("fas"); 
-    deleteButtonNode.classList.add("fa-times");
-    todoNode.appendChild(deleteButtonNode);
-
-    deleteButtonNode.addEventListener("click", function(event) {
-      var newState = todoFunctions.deleteTodo(state, todo.id);
-      update(newState);
-    });
-
     // add markTodo button
-    var markButtonNode = document.createElement("button");
+    let markButtonNode = document.createElement("button");
     markButtonNode.classList.add("markButton");
     markButtonNode.textContent = "Mark";
-
+     //add event listener to delete button.
     markButtonNode.addEventListener("click", function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
-      
       update(newState);
     });
     if (todo.done === true){
-      span.classList.add('qqq')
+      span.classList.add('textDecoration');
     }
     todoNode.appendChild(markButtonNode);
 
+    // this adds the delete button
+    let deleteButtonNode = document.createElement("i");
+    deleteButtonNode.classList.add("fas"); 
+    deleteButtonNode.classList.add("fa-times");
+    todoNode.appendChild(deleteButtonNode);
+      //add event listener to delete button.
+    deleteButtonNode.addEventListener("click", function(event) {
+      let newState = todoFunctions.deleteTodo(state, todo.id);
+      update(newState);
+    });
+
+
     // add classes for css
-
-
     return todoNode;
   };
 
   // bind create todo form
-  if (addTodoForm) {
+    if (addTodoForm) {
     addTodoForm.addEventListener("submit", function(event) {
-      
-      // https://developer.mozilla.org/en-US/docs/Web/Events/submit
-      // what does event.preventDefault do?
+      // event.preventDefault 
       event.preventDefault();
-      // what is inside event.target?
-   
       let inputtext = document.querySelector("input[name = 'description']");
       let description = inputtext.value;
        inputtext.value = " "
       state = todoFunctions.addTodo(state, description);
-
-      // var descrip  tion = '?'; // event.target ....
-      // hint: todoFunctions.addTodo
-      var newState = state; // ?? change this!
-      
+      var newState = state; // change this!
       update(newState);
     });
   }
 
   // you should not need to change this function
-  var update = function(newState) {
-    state = newState;
-    renderState(state);
-  };
+     var update = function(newState) {
+     state = newState;
+     renderState(state);
+   };
 
   // you do not need to change this function
-  var renderState = function(state) {
+    var renderState = function(state) {
     var todoListNode = document.createElement("ul");
-
+    todoListNode.classList.add("ul-style")
     state.forEach(function(todo) {
       todoListNode.appendChild(createTodoNode(todo));
     });
@@ -103,4 +90,4 @@
   };
 
   if (container) renderState(state);
-})();
+  })();

@@ -1,4 +1,94 @@
-.qqq{
+* {
+    box-sizing: border-box;
+  }
+.body{
+    padding-top: 10%;
+    margin:0;
+    background-color: #bdc3c7;  
+    background: linear-gradient(to top, #bdc3c7, #142331);
+    height: 100vh;
+    display:flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.addToDoForm {
+    
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 50%;
+    border:2px hsl(195, 2%, 69%) solid;
+    padding: 5px;
+    
+  }
+ 
+  .addToDoForm [name="description"]{
+       margin: 10px; 
+      width:60%;
+       font-size: 20px; 
+       color: #352e2e;
+       padding-left: 16px;
+
+  } 
+  .addToDoForm [value="Add"]{ 
+    margin:13px; 
+   width:15%;
+    font-size: 20px; 
+    color: #352e2e;
+
+}
+.fa-sort{
+    margin: 17px;
+    margin-left: 30px;
+    font-size: 45px;
+    
+}
+  
+.span-style{
+
+    padding: 5px;
+    margin:0;
+    font-size: 26px;
+    width:70%;
+    float: left;
+
+}
+
+.container{
+    display: flex;
+    border:2px hsl(195, 2%, 69%) solid;
+    margin-top: 10px;
+    padding: 10px;
+    width: 50%;
+}
+
+.ul-style{
+    margin:0;
+    padding: 0;
+    width:100%;
+}
+ .li-Style {
+    list-style: none;
+     width: 107%;
+     height: 45px;;
+    padding:7px;
+    background: #eee;
+    /* font-size: 18px; */
+}
+
+/* span for text {
+    flex: 6;
+}
+
+.textDecoration{
     color: red;
     text-decoration: line-through;
 }
+markbutton {
+    flex:1;
+}
+
+deletebutton {
+    flex: 1;
+} */ */
