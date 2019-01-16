@@ -77,8 +77,8 @@
   float: left;
   flex: 3;
 }
-.span-style{
-    width: 60%;
+.span-style {
+  width: 60%;
 }
 .container {
   border: 3px #282d3d solid;
@@ -195,8 +195,8 @@
   word-wrap: break-word;
   flex: 3;
 }
-
 .footer {
+  font-family: "Noto Sans KR";
   position: absolute;
   bottom: 0;
   padding-top: 5px;
@@ -206,13 +206,13 @@
   color: #c8c9c9;
   background: #1e1e1e;
 }
-@media(max-width:800px){
-    .container{
-        margin-top: 10%;
-        width: 95%;
-        height: 90%;
-    }
-    .addToDoForm{
-        width: 95%;
-    }
+@media (max-width: 800px) {
+  .container {
+    margin-top: 10%;
+    width: 95%;
+    height: 90%;
+  }
+  .addToDoForm {
+    width: 95%;
+  }
 }
