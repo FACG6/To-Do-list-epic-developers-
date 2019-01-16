@@ -20,7 +20,7 @@ test('testing add new todo', function(t) {
 test('testing add new todo as anumber', function(t) {
   let array = [];
   const actual = logic.addTodo(array, "51") ;
-  const expectes = "plz add something to do";
+  const expectes = [];
   [
     {
       id: 1,
@@ -35,7 +35,7 @@ test('testing add new todo as anumber', function(t) {
 test('testing add space', function(t) {
   let array = [];
   const actual = logic.addTodo(array, "  ") ;
-  const expectes = "plz add something to do";
+  const expectes = [];
   [
     {
       id: 1,
