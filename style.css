@@ -1,80 +1,88 @@
 * {
-    box-sizing: border-box;
-  }
-.body{
-    padding-top: 10%;
-    margin:0;
-    background-color: #bdc3c7;  
-    background: linear-gradient(to top, #bdc3c7, #142331);
-    height: 100vh;
-    display:flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: column;
+  box-sizing: border-box;
+}
+.body {
+  padding-top: 10%;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .addToDoForm {
-    
-    display: flex;
-    flex-direction: row;
-    align-content: space-between;
-    width: 50%;
-    border:2px hsl(195, 2%, 69%) solid;
-    padding: 5px;
-    
-  }
- 
-  .addToDoForm [name="description"]{
-       margin: 10px; 
-      width:60%;
-       font-size: 20px; 
-       color: #352e2e;
-       padding-left: 16px;
-
-  } 
-  .addToDoForm [value="Add"]{ 
-    margin:13px; 
-   width:15%;
-    font-size: 20px; 
-    color: #352e2e;
-
-}
-.fa-sort{
-    margin: 17px;
-    margin-left: 30px;
-    font-size: 45px;
-    
-}
-  
-.span-style{
-
-    padding: 5px;
-    margin:0;
-    font-size: 26px;
-    width:70%;
-    float: left;
-
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  width: 50%;
+  border: rgb(41, 40, 40) solid;
+  border-radius: 0 0 12px 12px;
+  background: rgba(255, 99, 71, 0.9);
+  padding: 5px;
 }
 
-.container{
-    display: flex;
-    border:2px hsl(195, 2%, 69%) solid;
-    margin-top: 10px;
-    padding: 10px;
-    width: 50%;
+.addToDoForm [name="description"] {
+  margin: 10px;
+  width: 60%;
+  font-size: 20px;
+  color: #352e2e;
+  padding-left: 16px;
+  font-family: "Noto Sans KR";
+  border-radius: 8px;
+}
+.addToDoForm [name="submit"] {
+  font-family: "Noto Sans KR";
+  font-weight: bold;
+  margin: 13px;
+  width: 15%;
+  font-size: 20px;
+  color: black;
+  background: white;
+  border: black solid;
+  border-radius: 8px;
+}
+.addToDoForm [name="submit"]:hover {
+  cursor: pointer;
+  color: white;
+  background: rgb(41, 40, 40);
+}
+.fa-sort {
+  margin: 17px;
+  margin-left: 30px;
+  font-size: 45px;
 }
 
-.ul-style{
-    margin:0;
-    padding: 0;
-    width:100%;
+.span-style {
+  padding: 5px;
+  margin: 0;
+  font-size: 26px;
+  width: 70%;
+  float: left;
 }
- .li-Style {
-    list-style: none;
-     width: 107%;
-     height: 45px;;
-    padding:7px;
-    background: #eee;
-    /* font-size: 18px; */
+
+.container {
+  display: flex;
+  border: 3px tomato solid;
+  border-radius: 8px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 50%;
+}
+
+.ul-style {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.li-Style {
+  list-style: none;
+  width: 107%;
+  height: 45px;
+  padding: 7px;
+  background: #eee;
+  /* font-size: 18px; */
 }
 
 /* span for text {
@@ -92,3 +100,54 @@ markbutton {
 deletebutton {
     flex: 1;
 } */
+
+.popup-container {
+  font-family: "Noto Sans KR";
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  opacity: 0;
+}
+.popup-container-onclick {
+  visibility: visible;
+  opacity: 1;
+}
+.popup-box {
+  margin: 150px auto;
+  padding: 0 20px 20px 20px;
+  border-radius: 10px;
+  background: #fff;
+  width: 35%;
+}
+.close-popup {
+  position: relative;
+  left: 95%;
+  bottom: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2.5em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: tomato;
+}
+.popup-confirm-button {
+  position: relative;
+  left: 85%;
+  font-family: "Noto Sans KR";
+  text-decoration: none;
+  font-weight: bold;
+  /* font-size: 1.1em; */
+  border-radius: 4px;
+  background: #fff;
+  color: tomato;
+  border: tomato solid;
+}
+.popup-confirm-button:hover {
+  cursor: pointer;
+  background: tomato;
+  color: #fff;
+}
