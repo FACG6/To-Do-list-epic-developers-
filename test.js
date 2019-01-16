@@ -15,33 +15,37 @@ test("testing add new todo", function(t) {
   t.end();
 });
 
-test("testing add new todo as anumber", function(t) {
-  let array = [];
-  const actual = logic.addTodo(array, "51");
-  const expectes = [];
-  [
+test('testing add new todo as anumber', function(t) {
+  let array = [ {
+    id: 0,
+    description: "todo1",
+    done: false
+  }];
+  const actual = logic.addTodo(array, "51") ;
+  const expectes = [
     {
-      id: 1,
-      description: "test adding",
-      done: false
+      id: 0,
+      description: "todo1",
+     done: false,
     }
   ];
-  t.deepEqual(actual, expectes, "done testing add numbers");
+  t.deepEqual(actual,expectes, "done testing add numbers");
   t.end();
 });
 
-test("testing add space", function(t) {
-  let array = [];
-  const actual = logic.addTodo(array, "  ");
-  const expectes = [];
-  [
-    {
-      id: 1,
-      description: "test adding",
-      done: false
-    }
-  ];
-  t.deepEqual(actual, expectes, "done testing space");
+test('testing add space', function(t) {
+  let array = [ {
+    id: 0,
+    description: "todo1",
+   done: false,
+  }];
+  const actual = logic.addTodo(array, "  ") ;
+  const expectes = [ {
+    id: 0,
+    description: "todo1",
+   done: false,
+  }];
+  t.deepEqual(actual,expectes, "done testing space");
   t.end();
 });
 

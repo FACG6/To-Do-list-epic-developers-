@@ -27,8 +27,6 @@ let todoFunctions = {
     const newtodo = todoFunctions.cloneArrayOfObjects(todos);
     if (!isNaN(newTodo.description) || newTodo.length < 2) {
       alert("Enter a valid To-Do");
-      console.log(typeof newTodo);
-      console.log(typeof todos)
       return todos;
     }
 
