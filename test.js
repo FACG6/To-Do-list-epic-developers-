@@ -1,49 +1,47 @@
 var test = require("tape");
 var logic = require("./logic");
 
-
-
-test('testing add new todo', function(t) {
+test("testing add new todo", function(t) {
   let array = [];
-  const actual = logic.addTodo(array, "test adding") ;
+  const actual = logic.addTodo(array, "test adding");
   const expectes = [
     {
       id: 1,
       description: "test adding",
-     done: false,
+      done: false
     }
-    ]
-  t.deepEqual(actual,expectes, "done adding the new todo");
+  ];
+  t.deepEqual(actual, expectes, "done adding the new todo");
   t.end();
 });
 
-test('testing add new todo as anumber', function(t) {
+test("testing add new todo as anumber", function(t) {
   let array = [];
-  const actual = logic.addTodo(array, "51") ;
+  const actual = logic.addTodo(array, "51");
   const expectes = [];
   [
     {
       id: 1,
       description: "test adding",
-     done: false,
+      done: false
     }
-  ]
-  t.deepEqual(actual,expectes, "done testing add numbers");
+  ];
+  t.deepEqual(actual, expectes, "done testing add numbers");
   t.end();
 });
 
-test('testing add space', function(t) {
+test("testing add space", function(t) {
   let array = [];
-  const actual = logic.addTodo(array, "  ") ;
+  const actual = logic.addTodo(array, "  ");
   const expectes = [];
   [
     {
       id: 1,
       description: "test adding",
-     done: false,
+      done: false
     }
-  ]
-  t.deepEqual(actual,expectes, "done testing space");
+  ];
+  t.deepEqual(actual, expectes, "done testing space");
   t.end();
 });
 
@@ -58,7 +56,8 @@ test("logic => mark test", t => {
       id: 1,
       description: "todo2",
       done: false
-    }];
+    }
+  ];
   let actual = logic.markTodo(todos, 0);
   let expected = [
     {
@@ -77,20 +76,19 @@ test("logic => mark test", t => {
   actual = logic.markTodo(todos, 1);
   expected = [
     {
-      id : 0,
+      id: 0,
       description: "todo1",
       done: false
     },
     {
-      id : 1,
+      id: 1,
       description: "todo2",
       done: true
     }
   ];
-  t.deepEqual(logic.markTodo(todos, 1), expected, 'The id was marked');
+  t.deepEqual(logic.markTodo(todos, 1), expected, "The id was marked");
   t.end();
 });
-
 
 test("test sorting the todo", t => {
   let todos = [
@@ -103,71 +101,50 @@ test("test sorting the todo", t => {
       id: 1,
       description: "todo2",
       done: false
-    }];
+    }
+  ];
   let actual = logic.sortTodos(todos);
   let expected = [
     {
       id: 1,
       description: "todo2",
-      done: false,
+      done: false
     },
     {
       id: 0,
       description: "todo1",
-      done: true,
+      done: true
     }
   ];
   t.deepEqual(actual, expected, "test the sort");
   t.end();
 });
-test("testin delete",function(t){
-  let array =[{id:1,
-    description: 'first todo',
-    done :true
+test("testin delete", function(t) {
+  let array = [
+    { id: 1, description: "first todo", done: true },
+    { id: 2, description: "second todo", done: true }
+  ];
+  const actual = logic.deleteTodo(array, 2);
+  const expected = [{ id: 1, description: "first todo", done: true }];
 
- },
- {id:2,
-   description: 'second todo',
-   done :true
-
-}];
-  const actual=logic.deleteTodo(array,2); 
- const expected= [{id:1,
-  description: 'first todo',
-  done :true
-
-}];
-
-t.deepEqual(actual,expected,"delete is done");
-t.end();
+  t.deepEqual(actual, expected, "delete is done");
+  t.end();
 });
 
-test("testin delete",function(t){
-  let array =[{id:1,
-    description: 'first to do',
-    done :true
- },
- {id:2,
-   description: 'second to do',
-   done :true
-},
-{id:3,
-  description: 'second to do',
-  done :true
-}];
-  
- const expected= [{id:1,
-  description: 'first to do',
-  done :true
-  },
- {id:2,
-  description: 'second to do' ,
-  done :true
-}];
+test("testin delete", function(t) {
+  let array = [
+    { id: 1, description: "first to do", done: true },
+    { id: 2, description: "second to do", done: true },
+    { id: 3, description: "second to do", done: true }
+  ];
 
-const actual=logic.deleteTodo(array,3); 
+  const expected = [
+    { id: 1, description: "first to do", done: true },
+    { id: 2, description: "second to do", done: true }
+  ];
 
-t.deepEqual(actual,expected,"delete is done");
-t.end();
+  const actual = logic.deleteTodo(array, 3);
 
+  t.deepEqual(actual, expected, "delete is done");
+  t.end();
 });
