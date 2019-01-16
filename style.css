@@ -84,7 +84,7 @@
   border: 3px #282d3d solid;
   border-radius: 8px;
   margin-top: 10px;
-  max-width: 50%;
+  width: 50%;
   max-height: 70vh;
   overflow-x: auto;
   overflow-y: auto;
