@@ -27,7 +27,7 @@
   });
 
   // This function takes a todo, it returns the DOM node representing that todo
-  let createTodoNode = todo => {
+  const createTodoNode = todo => {
     let todoNode = document.createElement("li");
 
     // craete a span holding description and append it to the list-item (todoNode)
@@ -60,8 +60,8 @@
       let addButton = document.querySelector("input[name=submit");
 
       todoInput.value = currentTodo.textContent;
-      todoInput.focus();
-      todoInput.select();
+      //todoInput.focus();
+      //todoInput.select();
 
       addButton.value = "Update";
       addButton.setAttribute("class", "update");
