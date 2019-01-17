@@ -60,8 +60,8 @@
       let addButton = document.querySelector("input[name=submit");
 
       todoInput.value = currentTodo.textContent;
-      //todoInput.focus();
-      //todoInput.select();
+      todoInput.focus();
+      todoInput.select();
 
       addButton.value = "Update";
       addButton.setAttribute("class", "update");
