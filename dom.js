@@ -27,15 +27,15 @@
   });
 
   // This function takes a todo, it returns the DOM node representing that todo
-  let createTodoNode = todo => {
+  const createTodoNode = todo => {
     let todoNode = document.createElement("li");
 
     // craete a span holding description and append it to the list-item (todoNode)
     let span = document.createElement("span");
     let time = new Date();
+    let day = days[time.getDay()];
     let minute =
       time.getMinutes() > 9 ? time.getMinutes() : "0" + time.getMinutes();
-    let day = days[time.getDay()];
     let hour =
       time.getHours() > 12
         ? time.getHours() - 12 + ":" + minute + "PM"

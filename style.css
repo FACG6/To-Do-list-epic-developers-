@@ -191,7 +191,7 @@
   width: 60%;
   font-weight: bold;
   font-size: 0.8em;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   word-wrap: break-word;
   flex: 3;
 }
