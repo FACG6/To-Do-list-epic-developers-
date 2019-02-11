@@ -44,7 +44,7 @@
     timeOfTodo.classList.add("todo-time");
     timeOfTodo.appendChild(document.createTextNode(day + " " + hour));
     span.classList.add("todo-item");
-    span.appendChild(document.createTextNode(todo.description));
+    span.innerHTML = todo.description;
     todoNode.appendChild(span);
     todoNode.appendChild(timeOfTodo);
 
